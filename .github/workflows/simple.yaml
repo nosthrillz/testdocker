@@ -4,7 +4,7 @@ name: simple
 
 jobs:
   ci:
-    runs-on: [nscloud-staging, nscloud-exp-locale-utf8]
+    runs-on: [nscloud-staging]
     steps:
       - name: Env checks
         run: |
