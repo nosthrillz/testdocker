@@ -42,7 +42,9 @@ jobs:
           locale
           docker version
           docker buildx version
-          
+
+      - name: Configure access to Namespace
+        uses: namespacelabs/nscloud-setup@v0
       - name: Configure buildx
         uses: namespacelabs/nscloud-setup-buildx-action@bab4f787be8af78a655e1a7dcca2b37d305253d9
       - name: Build and push
