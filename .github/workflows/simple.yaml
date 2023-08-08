@@ -30,6 +30,9 @@ jobs:
           tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
   ci-gh-runner:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Env checks
         run: |
