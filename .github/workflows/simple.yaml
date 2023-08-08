@@ -4,7 +4,7 @@ name: simple
 
 jobs:
   ci:
-    runs-on: [nscloud-staging]
+    runs-on: [nscloud-staging, nscloud-no-remote-builders]
     steps:
       - name: Env checks
         run: |
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Configure buildx
-        uses: namespacelabs/nscloud-setup-buildx-action@v0
+        uses: namespacelabs/nscloud-setup-buildx-action@bab4f787be8af78a655e1a7dcca2b37d305253d9
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
