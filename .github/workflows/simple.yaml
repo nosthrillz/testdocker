@@ -41,4 +41,12 @@ jobs:
           uname -a
           locale
           docker version
+      - name: Configure buildx
+        uses: namespacelabs/nscloud-setup-buildx-action@bab4f787be8af78a655e1a7dcca2b37d305253d9
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
           docker buildx version
