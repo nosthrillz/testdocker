@@ -4,7 +4,7 @@ name: simple
 
 jobs:
   ci:
-    runs-on: [nscloud-staging, nscloud-no-remote-builders]
+    runs-on: [nscloud-ubuntu-22.04-staging-amd64-2x4-with-cache, nscloud-cache-size-2-gb, nscloud-cache-tag-simple]]
     steps:
       - name: Env checks
         run: |
@@ -17,6 +17,7 @@ jobs:
           locale
           docker version
           docker buildx version
+          cd /cache && df -h .
 
       - uses: actions/checkout@v3
 
