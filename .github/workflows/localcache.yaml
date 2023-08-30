@@ -25,7 +25,7 @@ jobs:
     
       - name: Cache Primes
         id: cache-primes
-        uses: namespacelabs/nscloud-cache-action@505f8c7381a629c248dba64e7b069e072e2edcf2
+        uses: namespacelabs/nscloud-cache-action@aaf178a2ab85acb742a5912a75ed7a3d1865d338
         with:
           path: prime-numbers
           key: ${{ runner.os }}-primes
