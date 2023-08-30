@@ -1,0 +1,38 @@
+on: [push, workflow_dispatch]
+
+name: localcache
+
+jobs:
+  ci:
+    runs-on:
+      - nscloud-ubuntu-22.04-amd64-8x16-with-cache
+      - nscloud-cache-tag-simple
+      - nscloud-cache-size-1gb
+      - nscloud-exp-container-image-cache
+    steps:
+      - name: Env checks
+        run: |
+          ulimit -a
+          aws --version
+          docker buildx ls 
+          env
+          # cat ~/.docker/config.json
+          uname -a
+          locale
+          docker version
+          docker buildx version
+          cd /cache && df -h .
+    
+      - name: Cache Primes
+        id: cache-primes
+        uses: namespacelabs/nscloud-cache-action@505f8c7381a629c248dba64e7b069e072e2edcf2
+        with:
+          path: prime-numbers
+          key: ${{ runner.os }}-primes
+  
+      - name: Generate Prime Numbers
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: echo "world" > prime-numbers/hello
+  
+      - name: Use Prime Numbers
+        run: cat prime-numbers/hello
