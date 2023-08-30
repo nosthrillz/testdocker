@@ -4,7 +4,11 @@ name: simple
 
 jobs:
   ci:
-    runs-on: [nscloud-ubuntu-22.04-staging-amd64-2x4-with-cache, nscloud-cache-size-2gb, nscloud-cache-tag-simple]
+    runs-on:
+      - nscloud-ubuntu-22.04-amd64-8x16-with-cache
+      - nscloud-cache-tag-simple
+      - nscloud-cache-size-10gb
+      - nscloud-exp-runner-tool-cache
     steps:
       - name: Env checks
         run: |
