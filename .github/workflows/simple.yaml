@@ -61,3 +61,8 @@ jobs:
           context: .
           push: true
           tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: gmichelo
