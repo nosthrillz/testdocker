@@ -23,6 +23,12 @@ jobs:
           docker buildx version
           cd /cache && df -h .
 
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: gmichelo
+
       - uses: actions/checkout@v3
 
       - name: Configure buildx
