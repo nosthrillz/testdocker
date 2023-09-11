@@ -50,7 +50,11 @@ jobs:
           locale
           docker version
           docker buildx version
-
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: gmichelo
       - name: Configure access to Namespace
         uses: namespacelabs/nscloud-setup@v0
       - name: Configure buildx
@@ -61,8 +65,3 @@ jobs:
           context: .
           push: true
           tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 30m
-          authorized-users: gmichelo
