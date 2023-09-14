@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-ubuntu-22.04-amd64-8x16-with-cache
+      - nscloud-ubuntu-22.04-staging-amd64-8x16-with-cache
       - nscloud-cache-tag-simple
       - nscloud-cache-size-1gb
       - nscloud-exp-container-image-cache
@@ -22,6 +22,7 @@ jobs:
           docker version
           docker buildx version
           cd /cache && df -h .
+          node -v
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
