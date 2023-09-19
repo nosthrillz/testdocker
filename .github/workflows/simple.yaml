@@ -33,7 +33,9 @@ jobs:
           duration: 30m
           authorized-users: gmichelo
 
+      - run: pwd
       - uses: actions/checkout@v3
+      - run: pwd
 
       - name: Configure buildx
         uses: namespacelabs/nscloud-setup-buildx-action@4c37ef8c6de2b360badda38fc29eec7a9f257ad3
