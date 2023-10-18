@@ -6,7 +6,7 @@ jobs:
   ci:
     runs-on:
       - nscloud-ubuntu-22.04-amd64-8x16-with-cache
-      - nscloud-cache-tag-e2e-tests
+      - nscloud-cache-tag-e2e_tests
       - nscloud-cache-size-5gb
       - nscloud-exp-container-image-cache
     steps:
