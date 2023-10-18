@@ -9,6 +9,7 @@ jobs:
       - nscloud-cache-tag-e2e-tests
       - nscloud-cache-size-5gb
       - nscloud-exp-container-image-cache
+      - nscloud-git-mirror-5gb
     steps:
       - name: Env checks
         run: |
