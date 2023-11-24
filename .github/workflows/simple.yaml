@@ -5,8 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - "nscloud:test"
-      - "nscloud=volume"
+      - namespace-profile-default
     steps:
       - name: Env checks
         run: |
