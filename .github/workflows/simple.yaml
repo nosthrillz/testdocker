@@ -5,10 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-ubuntu-22.04-staging-amd64-8x16-with-cache
-      - nscloud-cache-tag-simple
-      - nscloud-cache-size-1gb
-      - nscloud-exp-container-image-cache
+      - "nscloud:test"
     steps:
       - name: Env checks
         run: |
