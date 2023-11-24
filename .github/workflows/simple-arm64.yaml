@@ -4,7 +4,7 @@ name: simple-arm64
 
 jobs:
   ci:
-    runs-on: nscloud-arm64 #Expect this to fail in staging, as arm64 capacity might not be available
+    runs-on: namespace-profile-default-arm64 
     steps:
       - name: Env checks
         run: |
