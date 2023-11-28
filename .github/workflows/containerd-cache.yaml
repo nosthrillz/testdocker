@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - namespace-profile-my-larger-runner
+      - namespace-profile-testing-cache
     steps:
       - name: Env checks
         run: |
@@ -19,6 +19,10 @@ jobs:
           docker version
           docker buildx version
           cd /cache && df -h .
+      
+      - name: ls root 
+        run: |
+          ls -lta /
 
       - uses: actions/checkout@v3
 
