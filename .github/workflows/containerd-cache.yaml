@@ -24,7 +24,10 @@ jobs:
         run: |
           ls -lta /
 
-      - uses: actions/checkout@v3
+      - name: Checkout with Namespace Git mirrors cache
+        uses: namespacelabs/nscloud-checkout-action@v1
+        with:
+          fetch-depth: 10
 
       - run: |
           time docker pull ubuntu
