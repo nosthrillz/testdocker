@@ -5,8 +5,12 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - namespace-profile-default
-      - namespace
+      - nscloud-ubuntu-22.04-arm64-4x16-with-cache
+			- nscloud-cache-tag-cache-go
+		  - nscloud-cache-size-25gb
+			- nscloud-git-mirror-40gb
+			- nscloud-exp-container-image-cache
+			- nscloud-exp-runner-tool-cache-10gb
     steps:
       - name: Env checks
         run: |
