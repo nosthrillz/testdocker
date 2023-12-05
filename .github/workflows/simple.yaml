@@ -26,14 +26,9 @@ jobs:
           cd /cache && df -h .
           node -v
 
-      - name: Install Rust
+      - name: Check if psql is installed
         run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 30m
-          authorized-users: gmichelo
+          psql --version   
 
       - run: pwd
       - uses: actions/checkout@v3
@@ -47,6 +42,14 @@ jobs:
           context: .
           push: true
           tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
+
+  custom-ns-image:
+    runs-on: namespace-profile-custom-image
+    steps:
+      - name: Check if psql is installed
+        run: |
+          psql --version  
+  
   ci-gh-runner:
     runs-on: ubuntu-latest
     permissions:
