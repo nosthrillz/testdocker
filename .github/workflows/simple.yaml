@@ -26,9 +26,11 @@ jobs:
           cd /cache && df -h .
           node -v
 
-      - name: Check if psql is installed
-        run: |
-          psql --version   
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
 
       - run: pwd
       - uses: actions/checkout@v3
