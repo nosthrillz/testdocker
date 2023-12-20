@@ -5,7 +5,11 @@ name: With Container
 jobs:
   on-nscloud:
     runs-on: namespace-profile-testing-cache
-    container: mcr.microsoft.com/playwright:v1.39.0
+    container: 
+      image: mcr.microsoft.com/playwright:v1.39.0
+      volumes: 
+        - /cache:/cache
+    
     steps:
       - name: checkout
         uses: actions/checkout@v3
