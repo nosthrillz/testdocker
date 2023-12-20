@@ -4,15 +4,19 @@ name: With Container
 
 jobs:
   on-nscloud:
-    runs-on: nscloud
-    container:
-      image: debian:bullseye
+    runs-on: namespace-profile-testing-cache
+    container: mcr.microsoft.com/playwright:v1.39.0
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name: hello
         run: |
           echo Hello from container
+      - name: Setup Namespace npm cache
+        uses: namespacelabs/nscloud-cache-action@v1
+        with:
+          path: |
+            ./**/node_modules
 
   on-github:
     runs-on: ubuntu-latest
