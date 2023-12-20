@@ -23,6 +23,12 @@ jobs:
           env
           ls /cache
           apt-get update -y && apt-get install -y sudo
+
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: gmichelo
       - name: Setup Namespace npm cache
         uses: namespacelabs/nscloud-cache-action@v1
         with:
