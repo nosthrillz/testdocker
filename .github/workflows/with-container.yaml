@@ -5,12 +5,12 @@ name: With Container
 jobs:
   on-nscloud:
     runs-on: namespace-profile-testing-cache
-    # container: 
-    #   image: mcr.microsoft.com/playwright:v1.39.0
-    #   env:
-    #     NSC_CACHE_PATH: ${{ env.NSC_CACHE_PATH }}
-    #   volumes: 
-    #     - /cache:/cache
+    container: 
+      image: mcr.microsoft.com/playwright:v1.39.0
+      env:
+        NSC_CACHE_PATH: ${{ env.NSC_CACHE_PATH }}
+      volumes: 
+        - /cache:/cache
     
     steps:
       - name: checkout
@@ -22,7 +22,7 @@ jobs:
         run: |
           env
           ls /cache
-          # apt-get update -y && apt-get install -y sudo
+          apt-get update -y && apt-get install -y sudo
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
@@ -33,7 +33,8 @@ jobs:
         uses: namespacelabs/nscloud-cache-action@v1
         with:
           path: |
-            ./**/node_modules
+            ~/.npm
+            ./node_modules
 
   on-github:
     runs-on: ubuntu-latest
