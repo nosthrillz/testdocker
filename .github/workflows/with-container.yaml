@@ -10,7 +10,7 @@ jobs:
       env:
         NSC_CACHE_PATH: ${{ env.NSC_CACHE_PATH }}
       volumes: 
-        - /cache:/cache
+        - "${{ env.NSC_CACHE_PATH }}":"${{ env.NSC_CACHE_PATH }}"
       options: --cap-add=SYS_ADMIN
     
     steps:
