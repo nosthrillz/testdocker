@@ -5,13 +5,12 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-ubuntu-22.04-amd64-4x16-with-cache
-      - nscloud-cache-tag-cache-go
-      - nscloud-cache-size-25gb
-      - nscloud-git-mirror-40gb
-      - nscloud-exp-container-image-cache
-      - nscloud-exp-runner-tool-cache-10gb
+      - nscloud-ubuntu-20.04-amd64-4x16
     steps:
+      - name: Run time
+        run: | 
+          time
+          which time
       - name: Env checks
         run: |
           ulimit -a
