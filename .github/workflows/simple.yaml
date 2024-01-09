@@ -7,10 +7,11 @@ jobs:
     runs-on:
       - nscloud-ubuntu-20.04-amd64-4x16
     steps:
-      - name: Run time
-        run: | 
-          time ls
-          which time
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
       - name: Env checks
         run: |
           ulimit -a
@@ -24,12 +25,6 @@ jobs:
           docker buildx version
           cd /cache && df -h .
           node -v
-
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 1h
-          authorized-users: gmichelo  
 
       - run: pwd
       - uses: actions/checkout@v3
