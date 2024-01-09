@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Run time
         run: | 
-          time
+          time ls
           which time
       - name: Env checks
         run: |
