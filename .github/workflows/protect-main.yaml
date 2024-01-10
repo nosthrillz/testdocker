@@ -1,6 +1,6 @@
 on: [workflow_dispatch, push]
 
-name: simple
+name: protect-main
 
 jobs:
   ci:
@@ -10,13 +10,13 @@ jobs:
       - nscloud-cache-size-100gb
       - nscloud-cache-allow-commit-from-main
       - nscloud-cache-allow-commit-from-default
-  steps:
-    - name: Cache content
-      run: |
-        ls /cache
-    - name: echo into cache
-      run: |
-        echo "test" >> /cache/test
-    - name: read cache
-      run: |
-        cat /cache/test
+    steps:
+      - name: Cache content
+        run: |
+          ls /cache
+      - name: echo into cache
+        run: |
+          echo "test" >> /cache/test
+      - name: read cache
+        run: |
+          cat /cache/test
