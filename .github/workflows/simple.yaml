@@ -12,32 +12,22 @@ jobs:
         with:
           duration: 1h
           authorized-users: gmichelo  
-      - name: Env checks
-        run: |
-          ulimit -a
-          aws --version
-          docker buildx ls 
-          env
-          # cat ~/.docker/config.json
-          uname -a
-          locale
-          docker version
-          docker buildx version
-          cd /cache && df -h .
-          node -v
+      # - name: Env checks
+      #   run: |
+      #     ulimit -a
+      #     aws --version
+      #     docker buildx ls 
+      #     env
+      #     # cat ~/.docker/config.json
+      #     uname -a
+      #     locale
+      #     docker version
+      #     docker buildx version
+      #     cd /cache && df -h .
+      #     node -v
 
-      - run: pwd
-      - uses: actions/checkout@v3
-      - run: pwd
-
-      - name: Configure buildx
-        uses: namespacelabs/nscloud-setup-buildx-action@4c37ef8c6de2b360badda38fc29eec7a9f257ad3
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
+      - run: df -i
+      - run: lsblk
 
   custom-ns-image:
     runs-on: namespace-profile-custom-image
@@ -52,29 +42,17 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - name: Env checks
-        run: |
-          ulimit -a
-          aws --version
-          docker buildx ls 
-          env
-          cat ~/.docker/config.json
-          uname -a
-          locale
-          docker version
-          docker buildx version
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 30m
-          authorized-users: gmichelo
-      - name: Configure access to Namespace
-        uses: namespacelabs/nscloud-setup@v0
-      - name: Configure buildx
-        uses: namespacelabs/nscloud-setup-buildx-action@4c37ef8c6de2b360badda38fc29eec7a9f257ad3
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
+      # - name: Env checks
+      #   run: |
+      #     ulimit -a
+      #     aws --version
+      #     docker buildx ls 
+      #     env
+      #     cat ~/.docker/config.json
+      #     uname -a
+      #     locale
+      #     docker version
+      #     docker buildx version
+      - run: df -i
+      - run: lsblk
+
