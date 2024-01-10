@@ -1,0 +1,22 @@
+on: [workflow_dispatch, push]
+
+name: simple
+
+jobs:
+  ci:
+    runs-on: 
+      - nscloud-ubuntu-22.04-amd64-4x16-with-cache
+      - nscloud-cache-tag-my-cache
+      - nscloud-cache-size-100gb
+      - nscloud-cache-allow-commit-from-main
+      - nscloud-cache-allow-commit-from-default
+  steps:
+    - name: Cache content
+      run: |
+        ls /cache
+    - name: echo into cache
+      run: |
+        echo "test" >> /cache/test
+    - name: read cache
+      run: |
+        cat /cache/test
