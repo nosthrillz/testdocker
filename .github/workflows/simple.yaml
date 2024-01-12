@@ -7,11 +7,6 @@ jobs:
     runs-on:
       - nscloud-ubuntu-22.04-staging-amd64-4x16
     steps:
-      # - name: Breakpoint if tests failed
-      #   uses: namespacelabs/breakpoint-action@v0
-      #   with:
-      #     duration: 1h
-      #     authorized-users: gmichelo  
       # - name: Env checks
       #   run: |
       #     ulimit -a
@@ -31,8 +26,11 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          push: true
-          tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
 
   custom-ns-image:
     runs-on: namespace-profile-custom-image
