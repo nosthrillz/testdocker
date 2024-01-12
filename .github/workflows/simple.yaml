@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-ubuntu-20.04-amd64-4x16
+      - nscloud-ubuntu-22.04-staging-amd64-4x16
     steps:
       # - name: Breakpoint if tests failed
       #   uses: namespacelabs/breakpoint-action@v0
@@ -26,8 +26,12 @@ jobs:
       #     cd /cache && df -h .
       #     node -v
 
-      - run: df -i
-      - run: lsblk
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: nscr.io/01gr1g2rpb7ahzddy3f227exq9/testdocker:latest
 
   custom-ns-image:
     runs-on: namespace-profile-custom-image
