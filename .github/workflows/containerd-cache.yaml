@@ -29,6 +29,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Go cache
+        uses: namespacelabs/nscloud-cache-action@v1
+        with:
+          path: |
+            .ci_cache/my_cache
+
       - uses: actions/setup-go@v4
         with:
           go-version: '>=1.17.0'
