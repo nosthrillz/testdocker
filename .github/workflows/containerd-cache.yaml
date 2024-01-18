@@ -38,6 +38,12 @@ jobs:
           path: |
             .ci_cache/my_cache
 
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo
+
       - run: |
           ls $(pwd)
 
