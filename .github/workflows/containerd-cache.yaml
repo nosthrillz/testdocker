@@ -36,13 +36,13 @@ jobs:
         uses: namespacelabs/nscloud-cache-action@v1
         with:
           path: |
-            .ci_cache/my_cache
+            .ci_cache/cache
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
         with:
           duration: 1h
-          authorized-users: gmichelo
+          authorized-users: gmichelo,edganiukov,hugosantos
 
       - run: |
           ls $(pwd)
