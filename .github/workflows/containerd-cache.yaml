@@ -29,11 +29,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: |
+          pwd 
+
       - name: Setup Go cache
         uses: namespacelabs/nscloud-cache-action@v1
         with:
           path: |
             .ci_cache/my_cache
+
+      - run: |
+          ls $(pwd)
 
       - uses: actions/setup-go@v4
         with:
