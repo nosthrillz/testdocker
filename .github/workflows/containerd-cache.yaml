@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - namespace-profile-testing-cache
+      - namespace-profile-testing-cache1
     steps:
       - name: Env checks
         run: |
