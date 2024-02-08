@@ -21,15 +21,6 @@ jobs:
           # cd /cache && df -h .
           # node -v
 
-      - uses: actions/checkout@v3
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: "1.21"
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
         with:
@@ -62,4 +53,9 @@ jobs:
           # docker buildx version
       - run: df -i
       - run: lsblk
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
 
