@@ -1,0 +1,24 @@
+name: Test NSCR docker credential helper
+on:
+  workflow_dispatch:
+
+permissions:
+  packages: read
+  contents: read
+  id-token: write # This is required for requesting the JWT
+
+jobs:
+  docker-build-custom-runners:
+    name: Pull image from nscr
+    runs-on:
+      - nnamespace-profile-containerd-cache
+    steps:
+      - uses: namespacelabs/nscloud-checkout-action@HEAD
+      - uses: namespacelabs/nscloud-setup@v0
+        id: nsc
+      - run: echo "" > ~/.docker/config.json
+      - run: nsc docker login
+      - run: cat ~/.docker/config.json
+      - name: Test containerd cache
+        run: |
+          docker run --pull=always ${{ steps.nsc.outputs.registry-address }}/test:latest
