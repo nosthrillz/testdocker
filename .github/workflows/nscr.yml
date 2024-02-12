@@ -19,6 +19,11 @@ jobs:
       - run: echo "" > ~/.docker/config.json
       - run: nsc docker login
       - run: cat ~/.docker/config.json
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
       - name: Test containerd cache
         run: |
           docker run --pull=always ${{ steps.nsc.outputs.registry-address }}/test:latest
