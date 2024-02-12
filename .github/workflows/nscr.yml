@@ -11,7 +11,7 @@ jobs:
   docker-build-custom-runners:
     name: Pull image from nscr
     runs-on:
-      - nnamespace-profile-containerd-cache
+      - namespace-profile-containerd-cache
     steps:
       - uses: namespacelabs/nscloud-checkout-action@HEAD
       - uses: namespacelabs/nscloud-setup@v0
