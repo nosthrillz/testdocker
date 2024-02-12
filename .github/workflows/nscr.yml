@@ -27,4 +27,5 @@ jobs:
           authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
       - name: Test containerd cache
         run: |
+          docker rmi ${{ steps.nsc.outputs.registry-address }}/test:latest
           docker run --pull=always ${{ steps.nsc.outputs.registry-address }}/test:latest
