@@ -20,6 +20,7 @@ jobs:
           # docker buildx version
           # cd /cache && df -h .
           # node -v
+      - run: gh version
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
