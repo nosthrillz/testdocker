@@ -22,7 +22,7 @@ jobs:
           # node -v
       - run: gh version
       - run: ls -lta /usr
-      - run: ls -lta /usr/share
+      - run: ls -lta /usr/share/dotnet
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
