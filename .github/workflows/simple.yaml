@@ -30,12 +30,12 @@ jobs:
           duration: 1h
           authorized-users: gmichelo  
 
-  custom-ns-image:
-    runs-on: namespace-profile-custom-image
-    steps:
-      - name: Check if psql is installed
-        run: |
-          psql --version  
+  # custom-ns-image:
+  #   runs-on: namespace-profile-custom-image
+  #   steps:
+  #     - name: Check if psql is installed
+  #       run: |
+  #         psql --version  
   
   ci-gh-runner:
     runs-on: ubuntu-latest
