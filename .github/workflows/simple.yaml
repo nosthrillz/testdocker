@@ -21,6 +21,8 @@ jobs:
           # cd /cache && df -h .
           # node -v
       - run: gh version
+      - run: ls -lta /usr
+      - run: ls -lta /usr/share
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
@@ -52,6 +54,8 @@ jobs:
           # locale
           # docker version
           # docker buildx version
+      - run: ls -lta /usr
+      - run: ls -lta /usr/share
       - run: df -i
       - run: lsblk
       - name: Breakpoint if tests failed
