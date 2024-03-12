@@ -61,10 +61,10 @@ jobs:
       - run: ls -lta /usr/share
       - run: df -i
       - run: lsblk
-      - uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 8.0.x
-          cache: false
+      # - uses: actions/setup-dotnet@v3
+      #   with:
+      #     dotnet-version: 8.0.x
+      #     cache: false
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
