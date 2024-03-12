@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-ubuntu-22.04-amd64-4x16-with-cache
+      - nscloud-ubuntu-20.04-staging-amd64-4x16-with-cache
       - nscloud-cache-exp-do-not-commit
       - nscloud-cache-tag-test
       - nscloud-cache-size-50gb
@@ -26,6 +26,12 @@ jobs:
       - run: gh version
       - run: ls -lta /usr
       - run: ls -lta /usr/share/dotnet
+      - name: Test terraform
+        run: |
+          terraform version
+      - name: Test brew
+        run: |
+          /home/linuxbrew/.linuxbrew/bin/brew --version
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
