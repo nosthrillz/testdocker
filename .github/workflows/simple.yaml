@@ -29,9 +29,9 @@ jobs:
       - name: Test terraform
         run: |
           terraform version
-      # - name: Test brew
-      #   run: |
-      #     brew --version
+      - name: Test brew
+        run: |
+          brew --version
       - name: Test aws cli and ssm plugin
         run: |
           aws --version
