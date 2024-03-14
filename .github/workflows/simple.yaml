@@ -33,12 +33,12 @@ jobs:
         run: |
           brew --version
           ls -lta /home/linuxbrew
+          brew update --preinstall
       - name: Test aws cli and ssm plugin
         run: |
           aws --version
           session-manager-plugin
 
-      - run: sudo chmod -R 777 /usr/share/dotnet
       - uses: actions/setup-dotnet@v4
         continue-on-error: true
         with:
