@@ -38,6 +38,17 @@ jobs:
           aws --version
           session-manager-plugin
 
+      - uses: actions/setup-dotnet@v4
+        continue-on-error: true
+        with:
+          dotnet-version: 8.0.200
+          cache: false
+      - uses: actions/setup-dotnet@v3
+        continue-on-error: true
+        with:
+          dotnet-version: 8.0.x
+          cache: false
+
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
         with:
