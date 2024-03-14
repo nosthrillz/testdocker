@@ -38,6 +38,7 @@ jobs:
           aws --version
           session-manager-plugin
 
+      - run: sudo chmod -R 777 /usr/share/dotnet
       - uses: actions/setup-dotnet@v4
         continue-on-error: true
         with:
