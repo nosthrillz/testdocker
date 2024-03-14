@@ -32,6 +32,7 @@ jobs:
       - name: Test brew
         run: |
           brew --version
+          ls -lta /home/linuxbrew
       - name: Test aws cli and ssm plugin
         run: |
           aws --version
@@ -69,6 +70,10 @@ jobs:
           # docker buildx version
       - run: ls -lta /usr
       - run: ls -lta /usr/share
+      - name: Test brew
+        run: |
+          brew --version
+          ls -lta /home/linuxbrew
       - run: df -i
       - run: lsblk
       - uses: actions/setup-dotnet@v3
