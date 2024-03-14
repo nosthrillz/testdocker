@@ -29,11 +29,7 @@ jobs:
       - name: Test terraform
         run: |
           terraform version
-      - name: Test brew
-        run: |
-          brew --version
-          ls -lta /home/linuxbrew
-          brew update --preinstall
+  
       - name: Test aws cli and ssm plugin
         run: |
           aws --version
@@ -49,6 +45,12 @@ jobs:
         with:
           dotnet-version: 8.0.x
           cache: false
+
+      - name: Test brew
+        run: |
+          brew --version
+          ls -lta /home/linuxbrew
+          brew update --preinstall
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
