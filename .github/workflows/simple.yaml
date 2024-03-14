@@ -5,11 +5,10 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - namespace-profile-fff
-      # - nscloud-ubuntu-20.04-staging-amd64-4x16-with-cache
-      # - nscloud-cache-exp-do-not-commit
-      # - nscloud-cache-tag-test
-      # - nscloud-cache-size-50gb
+      - nscloud-ubuntu-20.04-staging-amd64-4x16-with-cache
+      - nscloud-cache-exp-do-not-commit
+      - nscloud-cache-tag-test
+      - nscloud-cache-size-50gb
     steps:
       - name: Env checks
         run: |
