@@ -1,0 +1,30 @@
+on: [workflow_dispatch]
+
+name: cargo-build
+
+jobs:
+  ci:
+    runs-on:
+      - nscloud-ubuntu-20.04-staging-amd64-4x16-with-cache
+      - nscloud-cache-exp-do-not-commit
+      - nscloud-cache-tag-test
+      - nscloud-cache-size-50gb
+    container:
+      image: "ubuntu"
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NSC_CACHE_PATH: ${{ env.NSC_CACHE_PATH }} # env.NSC_CACHE_PATH contains the path to Cache Volume directory, that is `/cache`.
+      volumes:
+        - /cache:/cache # Where the Cache Volume is mounted.
+      options: --cap-add=SYS_ADMIN # Required to by nscloud-cache-action to call `mount`.
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: namespace-integration-demos/rust-cache
+          path: demo
+      - run: cargo build --locked --release --no-default-features --all
+        working-directory: ./demo
+      - run: cargo test --locked --release --all
+        working-directory: ./demo
