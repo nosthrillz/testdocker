@@ -21,7 +21,7 @@ jobs:
         with:
           repository: namespace-integration-demos/rust-cache
           path: demo
-      - run: cargo build --locked --release --no-default-features --all
+      - run: cargo build --locked 
         working-directory: ./demo
       - run: cargo test --locked --release --all
         working-directory: ./demo
