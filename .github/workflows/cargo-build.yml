@@ -10,7 +10,7 @@ jobs:
       - nscloud-cache-tag-test
       - nscloud-cache-size-50gb
     container:
-      image: "rust"
+      image: "nscr.io/01gr48y5j6qv4mgheyj4mchj76/rust:latest"
       env:
         NSC_CACHE_PATH: ${{ env.NSC_CACHE_PATH }} # env.NSC_CACHE_PATH contains the path to Cache Volume directory, that is `/cache`.
       volumes:
