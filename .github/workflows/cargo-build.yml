@@ -19,10 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
         with:
-          repository: namespace-integration-demos/rust-cache
-          path: demo
+          repository: chainflip-io/chainflip-backend
       - run: rustup default stable
-      - run: cargo build --locked 
-        working-directory: ./demo
-      - run: cargo test --locked --release --all
-        working-directory: ./demo
+      - run: cargo cf-build-release --locked
