@@ -26,10 +26,7 @@ jobs:
     runs-on:
       - ubuntu-latest
     container:
-      image: "custom-rust:latest"
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      image: "bigmikes/custom-rust:latest"
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
         with:
