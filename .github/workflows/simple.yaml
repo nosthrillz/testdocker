@@ -16,6 +16,13 @@ jobs:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
+
+      - name: Test checkout of another private repository
+        uses: namespacelabs/nscloud-checkout-action@HEAD
+        with:
+          repository: gmichelo-dev/runner-tool-cache
+          token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: tools2
     
       - run: pwd
       - name: Env checks
