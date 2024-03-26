@@ -85,7 +85,6 @@ jobs:
           # docker buildx version
       - run: ls -lta /usr
       - run: ls -lta /home/runner
-      - run: ls -lta /opt/actions-runner
       - run: ls -lta /usr/share
       # - name: Test brew
       #   run: |
