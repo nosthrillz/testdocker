@@ -21,3 +21,21 @@ jobs:
         with:
           duration: 30m
           authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
+
+  gh-runner:
+    runs-on:
+      - ubuntu-latest
+    container:
+      image: "nscr.io/01gr48y5j6qv4mgheyj4mchj76/rust:latest"
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        with:
+          repository: chainflip-io/chainflip-backend
+      - run: rustup default stable
+      - run: cargo cf-build-release --locked
+      - name: Breakpoint on failure
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
+  
