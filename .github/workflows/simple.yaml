@@ -24,6 +24,7 @@ jobs:
           # cd /cache && df -h .
           # node -v
       - run: gh version
+      - run: ls -lta /home/runner
       - run: ls -lta /usr
       - run: ls -lta /usr/share/dotnet
       - name: Test terraform
@@ -83,6 +84,8 @@ jobs:
           # docker version
           # docker buildx version
       - run: ls -lta /usr
+      - run: ls -lta /home/runner
+      - run: ls -lta /opt/actions-runner
       - run: ls -lta /usr/share
       # - name: Test brew
       #   run: |
