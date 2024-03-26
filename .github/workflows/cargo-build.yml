@@ -21,6 +21,7 @@ jobs:
         with:
           repository: namespace-integration-demos/rust-cache
           path: demo
+      - run: rustup default stable
       - run: cargo build --locked 
         working-directory: ./demo
       - run: cargo test --locked --release --all
