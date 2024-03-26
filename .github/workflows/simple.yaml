@@ -10,6 +10,7 @@ jobs:
       - nscloud-cache-tag-test
       - nscloud-cache-size-50gb
     steps:
+      - run: pwd
       - name: Env checks
         run: |
           # ulimit -a
@@ -72,6 +73,7 @@ jobs:
       id-token: write
       contents: read
     steps:
+      - run: pwd
       - name: Env checks
         run: |
           # ulimit -a
