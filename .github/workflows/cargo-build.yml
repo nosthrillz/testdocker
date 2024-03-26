@@ -6,7 +6,6 @@ jobs:
   ci:
     runs-on:
       - nscloud-ubuntu-20.04-staging-amd64-4x16-with-cache
-      - nscloud-cache-exp-do-not-commit
       - nscloud-cache-tag-test
       - nscloud-cache-size-50gb
     container:
