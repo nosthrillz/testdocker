@@ -9,7 +9,7 @@ jobs:
       - nscloud-cache-tag-test
       - nscloud-cache-size-50gb
     container:
-      image: "rust"
+      image: "nscr.io/01gr48y5j6qv4mgheyj4mchj76/rust:latest"
       env:
         NSC_CACHE_PATH: ${{ env.NSC_CACHE_PATH }} # env.NSC_CACHE_PATH contains the path to Cache Volume directory, that is `/cache`.
       volumes:
@@ -21,3 +21,8 @@ jobs:
           repository: chainflip-io/chainflip-backend
       - run: rustup default stable
       - run: cargo cf-build-release --locked
+      - name: Breakpoint on failure
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 30m
+          authorized-users: edganiukov,hugosantos,n-g,htr,nichtverstehen,gmichelo
