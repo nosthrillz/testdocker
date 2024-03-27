@@ -25,6 +25,8 @@ jobs:
           path: tools2
     
       - run: pwd
+      - run: getent passwd
+      - run: getent group
       - name: Env checks
         run: |
           # ulimit -a
@@ -89,6 +91,7 @@ jobs:
     steps:
       - run: pwd
       - run: getent passwd
+      - run: getent group
       - name: Env checks
         run: |
           # ulimit -a
