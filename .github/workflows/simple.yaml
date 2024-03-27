@@ -71,11 +71,11 @@ jobs:
           ls -lta /home/linuxbrew
           brew update --preinstall
 
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 1h
-          authorized-users: gmichelo  
+      # - name: Breakpoint if tests failed
+      #   uses: namespacelabs/breakpoint-action@v0
+      #   with:
+      #     duration: 1h
+      #     authorized-users: gmichelo  
 
   # custom-ns-image:
   #   runs-on: namespace-profile-custom-image
@@ -119,9 +119,9 @@ jobs:
           dotnet-version: 8.0.x
           cache: false
 
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 1h
-          authorized-users: gmichelo  
+      # - name: Breakpoint if tests failed
+      #   uses: namespacelabs/breakpoint-action@v0
+      #   with:
+      #     duration: 1h
+      #     authorized-users: gmichelo  
 
