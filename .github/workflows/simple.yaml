@@ -11,14 +11,14 @@ jobs:
       - nscloud-cache-size-50gb
     steps:
       - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@HEAD
+        uses: actions/checkout@v4
         with:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
 
       - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@HEAD
+        uses: actions/checkout@v4
         with:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
