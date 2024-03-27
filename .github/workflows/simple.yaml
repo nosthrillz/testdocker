@@ -11,14 +11,14 @@ jobs:
       - nscloud-cache-size-50gb
     steps:
       - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@HEAD
+        uses: actions/checkout@v4
         with:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
 
       - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@HEAD
+        uses: actions/checkout@v4
         with:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
@@ -44,6 +44,7 @@ jobs:
       - run: ls -lta /home
       - run: ls -lta /usr
       - run: ls -lta /usr/share/dotnet
+      - run: cat /etc/sudoers
       - name: Test terraform
         run: |
           terraform version
@@ -106,6 +107,7 @@ jobs:
       - run: ls -lta /usr
       - run: ls -lta /home
       - run: ls -lta /usr/share
+      - run: cat /etc/sudoers
       # - name: Test brew
       #   run: |
       #     brew --version
