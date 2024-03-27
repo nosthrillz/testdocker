@@ -44,7 +44,7 @@ jobs:
       - run: ls -lta /home
       - run: ls -lta /usr
       - run: ls -lta /usr/share/dotnet
-      - run: cat /etc/sudoers
+      - run: sudo cat /etc/sudoers
       - name: Test terraform
         run: |
           terraform version
@@ -107,7 +107,7 @@ jobs:
       - run: ls -lta /usr
       - run: ls -lta /home
       - run: ls -lta /usr/share
-      - run: cat /etc/sudoers
+      - run: sudo cat /etc/sudoers
       # - name: Test brew
       #   run: |
       #     brew --version
