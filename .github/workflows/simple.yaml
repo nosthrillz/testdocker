@@ -7,66 +7,67 @@ jobs:
     runs-on:
       - gmichelo-test
     steps:
-      - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@HEAD
-        with:
-          repository: gmichelo-dev/runner-tool-cache
-          token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
-          path: tools
+      - run: echo "hello"
+      # - name: Test checkout of another private repository
+      #   uses: namespacelabs/nscloud-checkout-action@HEAD
+      #   with:
+      #     repository: gmichelo-dev/runner-tool-cache
+      #     token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
+      #     path: tools
 
-      - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@HEAD
-        with:
-          repository: gmichelo-dev/test-private
-          token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
-          path: test-private
+      # - name: Test checkout of another private repository
+      #   uses: namespacelabs/nscloud-checkout-action@HEAD
+      #   with:
+      #     repository: gmichelo-dev/test-private
+      #     token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
+      #     path: test-private
     
-      - run: pwd
-      - run: getent passwd
-      - run: getent group
-      - name: Env checks
-        run: |
-          # ulimit -a
-          # aws --version
-          # docker buildx ls 
-          env
-          # cat ~/.docker/config.json
-          # uname -a
-          # locale
-          # docker version
-          # docker buildx version
-          # cd /cache && df -h .
-          # node -v
-      - run: gh version
-      - run: ls -lta /home
-      - run: ls -lta /usr
-      - run: ls -lta /usr/share/dotnet
-      - run: sudo cat /etc/sudoers
-      - name: Test terraform
-        run: |
-          terraform version
+      # - run: pwd
+      # - run: getent passwd
+      # - run: getent group
+      # - name: Env checks
+      #   run: |
+      #     # ulimit -a
+      #     # aws --version
+      #     # docker buildx ls 
+      #     env
+      #     # cat ~/.docker/config.json
+      #     # uname -a
+      #     # locale
+      #     # docker version
+      #     # docker buildx version
+      #     # cd /cache && df -h .
+      #     # node -v
+      # - run: gh version
+      # - run: ls -lta /home
+      # - run: ls -lta /usr
+      # - run: ls -lta /usr/share/dotnet
+      # - run: sudo cat /etc/sudoers
+      # - name: Test terraform
+      #   run: |
+      #     terraform version
   
-      - name: Test aws cli and ssm plugin
-        run: |
-          aws --version
-          session-manager-plugin
+      # - name: Test aws cli and ssm plugin
+      #   run: |
+      #     aws --version
+      #     session-manager-plugin
 
-      - uses: actions/setup-dotnet@v4
-        continue-on-error: true
-        with:
-          dotnet-version: 8.0.200
-          cache: false
-      - uses: actions/setup-dotnet@v3
-        continue-on-error: true
-        with:
-          dotnet-version: 8.0.x
-          cache: false
+      # - uses: actions/setup-dotnet@v4
+      #   continue-on-error: true
+      #   with:
+      #     dotnet-version: 8.0.200
+      #     cache: false
+      # - uses: actions/setup-dotnet@v3
+      #   continue-on-error: true
+      #   with:
+      #     dotnet-version: 8.0.x
+      #     cache: false
 
-      - name: Test brew
-        run: |
-          brew --version
-          ls -lta /home/linuxbrew
-          brew update --preinstall
+      # - name: Test brew
+      #   run: |
+      #     brew --version
+      #     ls -lta /home/linuxbrew
+      #     brew update --preinstall
 
       # - name: Breakpoint if tests failed
       #   uses: namespacelabs/breakpoint-action@v0
