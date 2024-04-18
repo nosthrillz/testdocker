@@ -7,7 +7,7 @@ jobs:
     runs-on:
       - gmichelo-test
     steps:
-      - run: echo "hello"
+      - run: exit 1
       # - name: Test checkout of another private repository
       #   uses: namespacelabs/nscloud-checkout-action@HEAD
       #   with:
