@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - gmichelo-test
+      - nscloud-ubuntu-22.04-amd64-4x16
     steps:
       - run: echo "hello"
       # - name: Test checkout of another private repository
