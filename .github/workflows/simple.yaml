@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-ubuntu-22.04-amd64-4x16
+      - nscloud-ubuntu-22.04-staging-amd64-4x16
     steps:
       - run: echo "hello"
       # - name: Test checkout of another private repository
