@@ -4,13 +4,13 @@ name: simple
 
 jobs:
   ci:
-    # runs-on:
-    #   - nscloud-ubuntu-22.04-staging-amd64-4x16-with-cache
-    #   - nscloud-cache-tag-cache-testdocker
-    #   - nscloud-cache-size-100gb
-    #   - nscloud-git-mirror-5gb
     runs-on:
-      - namespace-profile-macos
+      - nscloud-ubuntu-22.04-staging-amd64-4x16-with-cache
+      - nscloud-cache-tag-cache-testdocker
+      - nscloud-cache-size-100gb
+      - nscloud-git-mirror-5gb
+    # runs-on:
+    #   - namespace-profile-macos
     steps:
       - run: echo "hello"
       - name: Test checkout of another private repository
