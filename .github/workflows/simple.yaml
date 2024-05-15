@@ -12,6 +12,11 @@ jobs:
     runs-on:
       - namespace-profile-macos
     steps:
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
       - run: echo "hello"
       - name: Test checkout of another private repository
         uses: namespacelabs/nscloud-checkout-action@HEAD
@@ -74,11 +79,7 @@ jobs:
           ls -lta /home/linuxbrew
           brew update --preinstall
 
-      # - name: Breakpoint if tests failed
-      #   uses: namespacelabs/breakpoint-action@v0
-      #   with:
-      #     duration: 1h
-      #     authorized-users: gmichelo  
+      
 
   # custom-ns-image:
   #   runs-on: namespace-profile-custom-image
