@@ -95,6 +95,8 @@ jobs:
       contents: read
     steps:
       - run: pwd
+      - run: which kubectl
+      - run: which helm
       - run: getent passwd
       - run: getent group
       - name: Env checks
