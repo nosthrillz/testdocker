@@ -10,19 +10,20 @@ jobs:
     #   - nscloud-cache-size-100gb
     #   - nscloud-git-mirror-5gb
     runs-on:
-      - namespace-profile-macos
+      - namespace-profile-no-remote-builder
     steps:
       - name: Env checks
         run: |
           # ulimit -a
           # aws --version
-          # docker buildx ls 
+          docker buildx ls 
+          docker version
+          docker buildx version
           env
           # cat ~/.docker/config.json
           # uname -a
           # locale
-          # docker version
-          # docker buildx version
+          
           # cd /cache && df -h .
           # node -v
       - name: Breakpoint if tests failed
@@ -101,15 +102,9 @@ jobs:
       - run: getent group
       - name: Env checks
         run: |
-          # ulimit -a
-          # aws --version
-          # docker buildx ls 
-          env
-          # cat ~/.docker/config.json
-          # uname -a
-          # locale
-          # docker version
-          # docker buildx version
+          docker buildx ls 
+          docker version
+          docker buildx version
       - run: ls -lta /usr
       - run: ls -lta /home
       - run: ls -lta /usr/share
