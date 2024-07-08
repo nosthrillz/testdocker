@@ -30,7 +30,9 @@ jobs:
       - nscloud-exp-features:critical
     steps:
       - uses: namespacelabs/nscloud-checkout-action@HEAD
-      - run: pip install pre-commit
+      - run: |
+          python -m venv my-venv
+          my-venv/bin/pip install pre-commit
 
   actions-gh-runner:
     name: gh-managed runner
@@ -44,4 +46,6 @@ jobs:
       - ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - run: pip install pre-commit
+      - run: |
+          python -m venv my-venv
+          my-venv/bin/pip install pre-commit
