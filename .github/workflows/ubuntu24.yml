@@ -41,7 +41,7 @@ jobs:
           - ubuntu-20.04
       fail-fast: false
     runs-on:
-      - ${{ matrix.os }}-${{ matrix.arch }}
+      - ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - run: pip install pre-commit
