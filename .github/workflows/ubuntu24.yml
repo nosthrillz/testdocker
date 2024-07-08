@@ -1,0 +1,41 @@
+name: Periodic actions canary job
+on:
+  workflow_dispatch:
+
+permissions:
+  packages: read
+  contents: read
+  id-token: write # This is required for requesting the JWT
+
+jobs:
+  actions-tests:
+    name: Actions Tests
+    timeout-minutes: 20
+    strategy:
+      matrix:
+        os:
+          - ubuntu-24.04
+          - ubuntu-24.04-staging
+        arch:
+          - amd64
+          - arm64
+      fail-fast: false
+    runs-on:
+      - nscloud-${{ matrix.os }}-${{ matrix.arch }}-2x8-with-cache
+      - nscloud-cache-tag-nodejs-canary
+      - nscloud-cache-size-50gb
+      - nscloud-exp-container-image-cache
+      - nscloud-exp-runner-tool-cache-5gb
+      - nscloud-git-mirror-5gb
+      - nscloud-exp-features:critical
+    steps:
+      - uses: namespacelabs/nscloud-checkout-action@HEAD
+      - run: pip install pre-commit
+
+  actions-gh-runner:
+    name: gh-managed runner
+    runs-on:
+      - ubuntu-24.04
+    steps:
+      - uses: namespacelabs/nscloud-checkout-action@HEAD
+      - run: pip install pre-commit
