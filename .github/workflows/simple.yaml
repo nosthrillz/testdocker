@@ -26,12 +26,6 @@ jobs:
           
           # cd /cache && df -h .
           # node -v
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 1h
-          authorized-users: gmichelo  
-      - run: echo "hello"
       - name: Test checkout of another private repository
         uses: namespacelabs/nscloud-checkout-action@HEAD
         with:
@@ -45,6 +39,12 @@ jobs:
           repository: gmichelo-dev/test-private
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: test-private
+
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
     
       - run: pwd
       - run: getent passwd
@@ -109,20 +109,26 @@ jobs:
       - run: ls -lta /home
       - run: ls -lta /usr/share
       - run: sudo cat /etc/sudoers
-      # - name: Test brew
-      #   run: |
-      #     brew --version
-      #     ls -lta /home/linuxbrew
       - run: df -i
       - run: lsblk
-      - uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 8.0.x
-          cache: false
 
-      # - name: Breakpoint if tests failed
-      #   uses: namespacelabs/breakpoint-action@v0
-      #   with:
-      #     duration: 1h
-      #     authorized-users: gmichelo  
+      - name: Test checkout of another private repository
+        uses: actions/checkout@v4
+        with:
+          repository: gmichelo-dev/runner-tool-cache
+          token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: tools
+
+      - name: Test checkout of another private repository
+        uses: actions/checkout@v4
+        with:
+          repository: gmichelo-dev/test-private
+          token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
+          path: test-private
+
+      - name: Breakpoint if tests failed
+        uses: namespacelabs/breakpoint-action@v0
+        with:
+          duration: 1h
+          authorized-users: gmichelo  
 
