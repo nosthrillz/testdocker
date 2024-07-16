@@ -32,6 +32,7 @@ jobs:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
+          submodules: recursive
 
       - name: Test checkout of another private repository
         uses: namespacelabs/nscloud-checkout-action@HEAD
@@ -39,6 +40,7 @@ jobs:
           repository: gmichelo-dev/test-private
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: test-private
+          submodules: recursive
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
@@ -118,6 +120,7 @@ jobs:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
+          submodules: recursive
 
       - name: Test checkout of another private repository
         uses: actions/checkout@v4
@@ -125,6 +128,7 @@ jobs:
           repository: gmichelo-dev/test-private
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: test-private
+          submodules: recursive
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
