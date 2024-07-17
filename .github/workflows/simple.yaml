@@ -33,6 +33,7 @@ jobs:
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
           submodules: recursive
+          persist-credentials: false
 
       - name: Test checkout of another private repository
         uses: namespacelabs/nscloud-checkout-action@local-git-credentials
@@ -41,6 +42,7 @@ jobs:
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: test-private
           submodules: recursive
+          persist-credentials: false
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
@@ -121,6 +123,7 @@ jobs:
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
           submodules: recursive
+          persist-credentials: false
 
       - name: Test checkout of another private repository
         uses: actions/checkout@v4
@@ -129,6 +132,7 @@ jobs:
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: test-private
           submodules: recursive
+          persist-credentials: false
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
