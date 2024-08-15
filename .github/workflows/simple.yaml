@@ -27,7 +27,7 @@ jobs:
           # cd /cache && df -h .
           # node -v
       - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@local-git-credentials
+        uses: namespacelabs/nscloud-checkout-action@HEAD
         with:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
@@ -36,7 +36,7 @@ jobs:
           persist-credentials: true
 
       - name: Test checkout of another private repository
-        uses: namespacelabs/nscloud-checkout-action@local-git-credentials
+        uses: namespacelabs/nscloud-checkout-action@HEAD
         with:
           repository: gmichelo-dev/test-private
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
