@@ -46,6 +46,7 @@ jobs:
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
+        if: always()
         with:
           duration: 1h
           authorized-users: gmichelo  
