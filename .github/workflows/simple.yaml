@@ -32,7 +32,7 @@ jobs:
           repository: gmichelo-dev/runner-tool-cache
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: tools
-          submodules: true
+          submodules: recursive
           persist-credentials: true
 
       - name: Test checkout of another private repository
@@ -41,7 +41,7 @@ jobs:
           repository: gmichelo-dev/test-private
           token: ${{ secrets.CHECKOUT_PAT }} # `GH_PAT` is a secret that contains your PAT
           path: test-private
-          submodules: true
+          submodules: recursive
           persist-credentials: true
 
       - name: Breakpoint if tests failed
