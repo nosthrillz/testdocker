@@ -11,6 +11,7 @@ jobs:
     #   - nscloud-git-mirror-5gb
     runs-on:
       - nscloud-ubuntu-22.04-amd64-4x32
+      - nscloud-exp-features:test=value;my-feature
     steps:
       - name: Env checks
         run: |
