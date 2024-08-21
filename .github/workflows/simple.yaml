@@ -10,7 +10,7 @@ jobs:
     #   - nscloud-cache-size-100gb
     #   - nscloud-git-mirror-5gb
     runs-on:
-      - namespace-profile-testing-cache
+      - nscloud-ubuntu-22.04-amd64-4x32
     steps:
       - name: Env checks
         run: |
