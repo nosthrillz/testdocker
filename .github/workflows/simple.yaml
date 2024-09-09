@@ -21,6 +21,7 @@ jobs:
           docker version
           docker buildx version
           env
+          dig rendezvous.namespace.so
           # cat ~/.docker/config.json
           # uname -a
           # locale
