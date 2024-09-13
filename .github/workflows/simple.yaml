@@ -4,14 +4,8 @@ name: simple
 
 jobs:
   ci:
-    # runs-on:
-    #   - nscloud-ubuntu-22.04-staging-amd64-4x16-with-cache
-    #   - nscloud-cache-tag-cache-testdocker
-    #   - nscloud-cache-size-100gb
-    #   - nscloud-git-mirror-5gb
     runs-on:
-      - nscloud-ubuntu-22.04-amd64-4x32
-      - namespace-experiments:docker.buildx.proxy=server-side;use-next-nsc
+      - nscloud-macos-sonoma-arm64-4x7
     steps:
       - name: Env checks
         run: |
