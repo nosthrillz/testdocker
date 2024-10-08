@@ -5,7 +5,7 @@ name: simple
 jobs:
   ci:
     runs-on:
-      - nscloud-macos-sonoma-arm64-4x7
+      - namespace-profile-default
     steps:
       - name: Env checks
         run: |
